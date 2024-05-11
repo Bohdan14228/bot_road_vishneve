@@ -4,7 +4,7 @@ from datetime import datetime, date
 import datetime
 import pytz
 
-from parser.headers import headers
+from headers import headers
 
 
 def get_data_from_url(url):
@@ -31,7 +31,10 @@ def info_road(index_url: int = 0, all_info: bool = False):
         kiev_time = now.astimezone(kiev_timezone)
         try:
             if index_url:
-                time = i.find_all("td", class_='tm')[1]
+                try:
+                    time = i.find_all("td", class_='tm')[1].text
+                except IndexError:
+                    pass
             else:
                 time = i.find_all("td")[3].text
 

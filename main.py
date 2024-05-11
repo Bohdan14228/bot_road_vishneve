@@ -1,6 +1,6 @@
 import asyncio
 import os
-from aiogram import Dispatcher, Bot, types
+from aiogram import Dispatcher, Bot
 from aiogram.enums import ParseMode
 
 from dotenv import find_dotenv, load_dotenv
